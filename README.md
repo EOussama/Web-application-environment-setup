@@ -1,4 +1,4 @@
-# Web-application-environment-setup
+# Web application environment setup
 ---
 
 ## Description
