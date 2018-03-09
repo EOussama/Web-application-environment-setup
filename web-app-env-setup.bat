@@ -50,7 +50,7 @@ MKDIR %scriptFolder%, %styleFolder%, %imagesFolder%
 
 CD %scriptFolder%
 TYPE NUL > main.js
-@ECHO // Main javascript file > main.js
+@ECHO // Main javascript file> main.js
 CD ../
 
 IF "%bootstrap%" == "true" (
