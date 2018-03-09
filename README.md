@@ -8,7 +8,7 @@ It gets too repetitive at times to setup your project environment, it's at most 
 > At the very first time of opening the file do the following:
 - Open the *.bat* file with any text editor.
 - Change the `author`'s variable to yours.
-- Toggle additional files on/off by setting their variable's values to true/false respectively, for example (`SET jQuery=true`).
+- Toggle additional files on/off by setting their variable's values to true/false respectively, for example (`SET jQuery=true`), all those files are inside of the *resources* folder.
 - Save the changes.
 
 > Once you've changed the author's name to yours, you may freely use the executable as follows:
