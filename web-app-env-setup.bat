@@ -16,7 +16,7 @@ REM The name of the folder that will contain images.
 SET imagesFolder=images
 
 REM Setting this to true will include bootstrap in your project [if set to true, jQuery will automatically be included], and vice versa.
-SET bootstrap=false
+SET bootstrap=true
 
 REM Setting this to true will include jQuery in your project [including bootsrap will have this set to true regardless], and vice versa.
 SET jQuery=false
@@ -55,14 +55,14 @@ CD ../
 
 IF "%bootstrap%" == "true" (
 	CD ../resources
-	MKDIR ..\%projectName%\bootstrap-4.0.0-dist
-	XCOPY bootstrap-4.0.0-dist ..\%projectName%\bootstrap-4.0.0-dist /e
+	MKDIR ..\"%projectName%"\bootstrap-4.0.0-dist
+	XCOPY bootstrap-4.0.0-dist ..\"%projectName%"\bootstrap-4.0.0-dist /e
 	CD ../"%projectName%"
 )
 
 IF "%jQuery%" == "true" (
 	CD ../resources
-	COPY jquery-3.3.1.min.js ..\%projectName%\%scriptFolder%
+	COPY jquery-3.3.1.min.js ..\"%projectName%"\%scriptFolder%
 	CD ../"%projectName%"
 )
 
