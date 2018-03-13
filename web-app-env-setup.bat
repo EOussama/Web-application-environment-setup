@@ -46,33 +46,34 @@ SET tab = " "
 
 MKDIR "%projectName%"
 CD "%projectName%"
-MKDIR %scriptFolder%, %styleFolder%, %imagesFolder%
+MKDIR "%scriptFolder%", "%styleFolder%", "%imagesFolder%"
 
-CD %scriptFolder%
+CD "%scriptFolder%"
 TYPE NUL > main.js
 @ECHO // Main javascript file> main.js
 CD ../
 
-IF "%bootstrap%" == "true" (
-	CD ../resources
-	MKDIR ..\"%projectName%"\bootstrap-4.0.0-dist
-	XCOPY bootstrap-4.0.0-dist ..\"%projectName%"\bootstrap-4.0.0-dist /e
-	CD ../"%projectName%"
-)
-
-IF "%jQuery%" == "true" (
-	CD ../resources
-	COPY jquery-3.3.1.min.js ..\"%projectName%"\%scriptFolder%
-	CD ../"%projectName%"
-)
-
-CD %styleFolder%
+CD "%styleFolder%"
 TYPE NUL > main.css
 @ECHO * {> main.css
 @ECHO %tab% %tab% %tab% %tab% margin: 0;>> main.css
 @ECHO %tab% %tab% %tab% %tab% padding: 0;>> main.css
 @ECHO }>> main.css
 CD ../
+
+IF "%bootstrap%" == "true" (
+	CD ../resources/bootstrap-4.0.0-dist/css
+	XCOPY bootstrap.min.css ..\..\..\"%projectName%"\"%styleFolder%" /e
+	CD ../js
+	XCOPY bootstrap.min.js ..\..\..\"%projectName%"\"%scriptFolder%" /e
+	CD ../../../"%projectName%"
+)
+
+IF "%jQuery%" == "true" (
+	CD ../resources
+	COPY jquery-3.3.1.min.js ..\"%projectName%"\"%scriptFolder%"
+	CD ../"%projectName%"
+)
 
 TYPE NUL > index.html
 @ECHO ^<!DOCTYPE html^>> index.html
@@ -87,7 +88,7 @@ TYPE NUL > index.html
 @ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<meta name="keywords" content="%projectKeyWords%"^>>> index.html
 @ECHO.>> index.html
 IF "%bootstrap%" == "true" (
-	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet"^>>> index.html
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<link href="%styleFolder%/bootstrap.min.css" rel="stylesheet"^>>> index.html
 )
 IF "%fontAwesome%" == "true" (
 	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"^>>> index.html
@@ -104,7 +105,7 @@ IF "%jQuery%" == "true" (
 	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script src="%scriptFolder%/jquery-3.3.1.min.js"^>^</script^>>> index.html
 )
 IF "%bootstrap%" == "true" (
-	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"^>^</script^>>> index.html
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script src="%scriptFolder%/bootstrap.min.js"^>^</script^>>> index.html
 )
 @ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script type="text/javascript" src="%scriptFolder%/main.js"^>^</script^>>> index.html
 @ECHO %tab% %tab% %tab% %tab% ^</body^>>> index.html
