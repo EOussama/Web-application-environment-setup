@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+	--primaryColor: #428bca;
+	--secondaryColor: gray;
+	--successColor: #5cb85c;
+	--infoColor: #5bc0de;
+	--warningColor: #F89406;
+	--dangerColor: #BD362F;
+	--disableColor: #909090;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: "Roboto", sans-serif;
+}
+
+/*-------------------[Buttons]----------------------*/
+
+.btn {
+	padding: 6px 8px;
+	margin: 2px;
+	font-size: 18px;
+	border: none;
+	border-radius: 3px;
+	box-shadow: 0px 2px 0.7px rgba(0, 0, 0, 0.4);
+	font-weight: bold;
+	cursor: pointer;
+	transition-property: background-color, transform;
+	transition-duration: .5s, .05s;
+}
+
+.btn:hover { background-color: #c4c4c4; }
+
+.btn:active {
+	transform: translateY(2px);
+	box-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.6);
+}
+
+.btn:focus { outline: none; }
+
+.btn-primary {
+	color: white;
+	background-color: var(--primaryColor);
+	box-shadow: 0px 2px 0.7px #235b8b;
+}
+
+.btn-primary:hover { background-color: #337dbc; }
+
+.btn-secondary {
+	color: white;
+	background-color: var(--secondaryColor);
+	box-shadow: 0px 2px 0.7px #5d5d5d;
+}
+
+.btn-secondary:hover { background-color: #717171; }
+
+.btn-success {
+	color: white;
+	background-color: var(--successColor);
+	box-shadow: 0px 2px 0.7px #409040;
+}
+
+.btn-success:hover { background-color: #50a750; }
+
+.btn-info {
+	color: white;
+	background-color: var(--infoColor);
+	box-shadow: 0px 2px 0.7px #4698b1;
+}
+
+.btn-info:hover { background-color: #54b2ce; }
+
+.btn-warning {
+	color: white;
+	background-color: var(--warningColor);
+	box-shadow: 0px 2px 0.7px #c37200;
+}
+
+.btn-warning:hover { background-color: #de8910; }
+
+.btn-danger {
+	color: white;
+	background-color: var(--dangerColor);
+	box-shadow: 0px 2px 0.7px #932822;
+}
+
+.btn-danger:hover { background-color: #af2a23; }
+
+.btn:disabled {
+	color: #b9b9b9;
+	background-color: var(--disableColor);
+	box-shadow: 0px 2px 0.7px #626262;
+	cursor: not-allowed;
+}
+
+.btn:disabled:hover { background-color: #909090; }
+
+/*---------------------[Textboxes]---------------------*/
+
+.textbox {
+	width: 300px;
+	margin: 5px;
+	padding: 12px 14px;
+	border: 0.5px solid darkgray;
+	border-left: 5px solid darkgray;
+	border-radius: 2px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	transition-property: border-color;
+	transition-duration: .5s;
+	outline: none;
+}
+
+.textbox-primary:focus {
+	border-left-color: var(--primaryColor);
+}
+
+.textbox-secondary:focus {
+	border-left-color: var(--secondaryColor);
+}
+
+.textbox-success:focus {
+	border-left-color: var(--successColor);
+}
+
+.textbox-info:focus {
+	border-left-color: var(--infoColor);
+}
+
+.textbox-warning:focus {
+	border-left-color: var(--warningColor);
+}
+
+.textbox-danger:focus {
+	border-left-color: var(--dangerColor);
+}
+
+.textbox:disabled {
+	cursor: not-allowed;
+	border-left-color: var(--disableColor);
+}
+
+input[type="text"]::before {
+	content: 'T';
+	position: relative;
+	top: 50px;
+	left: 50px;
+	font-size: 50px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+	position: relative;
+	right: -12px;
+	opacity: 0;
+	cursor: pointer;
+	padding: 16px 2px;
+	transition-property: opacity;
+	transition-duration: .3s;
+}
+
+input[type="number"]:not(:disabled):hover::-webkit-inner-spin-button { opacity: .5; }
+
+input[type="search"]::-webkit-search-cancel-button {
+	
+	position: relative;
+	left: 5px;
+	font-size: 16px;
+	background: gray;
+	cursor: pointer;
+}
+
+/*-----------------------------[Date]------------------------------*/
+
+/*-------------------------[Color picker]--------------------------*/
+
+/*-----------------------------[Kbd]-------------------------------*/
+kbd {
+	padding: 10px;
+	background-color: #2a2a2a;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 5px;
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.9);
+}
+
+/*----------------------------[Quotes]-----------------------------*/
+blockquote {
+	min-width: 500px;
+	padding: 20px;
+	font-style: italic;
+	background-color: #d1d1d1;
+	border-left: 5px solid rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+/*------------------------------[Code]-----------------------------*/
+code {
+	padding: 5px;
+	color: #ff4444;
+	background-color: #ffbaba;
+	font-weight: bold;
+	border-radius: 2px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/*---------------------------[Containers]---------------------------*/
+div.container { padding: 30px 50px; }
+
+div.landleg {
+	padding: 30px 50px;
+	background-color: #c6c6c6;
+	border-bottom: 2px solid #b7b7b7;
+}
+
+div.landleg * { margin: 10px auto; }
+
+/*-------------------------------[hr]-------------------------------*/
+hr {
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+hr.fade {
+	border: none;
+	height: 1px;
+	background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+}
+
+/*-----------------------------[Card]-------------------------------*/
+div.card {
+	margin: 5px;
+	padding: 30px;;
+	border: 1px solid #c3c3c3;
+	border-radius: 3px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+div.card-header { margin-bottom: 20px; }
+
+div.card-primary {
+	background-color: var(--primaryColor);
+	color: white;
+}
+
+div.card-secondary {
+	background-color: var(--secondaryColor);
+	color: white;
+}
+
+div.card-success {
+	background-color: var(--successColor);
+	color: white;
+}
+
+div.card-info {
+	background-color: var(--infoColor);
+	color: white;
+}
+
+div.card-warning {
+	background-color: var(--warningColor);
+	color: white;
+}
+
+div.card-danger {
+	background-color: var(--dangerColor);
+	color: white;
+}
+
+div.card-disabled {
+	background-color: var(--disableColor);
+	color: white;
+	cursor: not-allowed;
+}
+
+/*---------------------------[Paragraph]-----------------------------*/
+p.indent::first-letter{
+	font-size: 1.5em;
+	font-weight: bold;
+}

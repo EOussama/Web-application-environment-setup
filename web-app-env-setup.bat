@@ -4,7 +4,7 @@ REM Web application environment setup
 
 
 REM The author's name to show up on the <meta name="author" content=""> tag.
-SET author=Eoussama
+SET author=Redouan
 
 REM The name of the folder that will contain javascript files.
 SET scriptFolder=scripts
@@ -15,8 +15,11 @@ SET styleFolder=styles
 REM The name of the folder that will contain images.
 SET imagesFolder=images
 
+REM Setting this to true will include EOmponents in your project.
+SET eomponents=true
+
 REM Setting this to true will include bootstrap in your project [if set to true, jQuery will automatically be included], and vice versa.
-SET bootstrap=true
+SET bootstrap=false
 
 REM Setting this to true will include jQuery in your project [including bootsrap will have this set to true regardless], and vice versa.
 SET jQuery=false
@@ -32,7 +35,7 @@ IF "%bootstrap%" == "true" (
 
 ECHO ---------------------------------------------------------------------------------------------------------------------
 ECHO Parameters (To change these, open up the .bat file with a text editor)
-ECHO [Author = %author%] - [Bootstrap = %bootstrap%] - [jQuery = %jQuery%] - [Font Awesome = %fontAwesome%]
+ECHO [Author = %author%] - [EOmponents = %eomponents%] - [Bootstrap = %bootstrap%] - [jQuery = %jQuery%] - [Font Awesome = %fontAwesome%]
 ECHO ---------------------------------------------------------------------------------------------------------------------
 ECHO.
 
@@ -61,6 +64,12 @@ TYPE NUL > main.css
 @ECHO }>> main.css
 CD ../
 
+IF "%eomponents%" == "true" (
+	CD ../resources/EOmponents/styles
+	XCOPY eomponents.css ..\..\..\"%projectName%"\"%styleFolder%" /e
+	CD ../../../"%projectName%"
+)
+
 IF "%bootstrap%" == "true" (
 	CD ../resources/bootstrap-4.0.0-dist/css
 	XCOPY bootstrap.min.css ..\..\..\"%projectName%"\"%styleFolder%" /e
@@ -87,6 +96,9 @@ TYPE NUL > index.html
 @ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<meta name="description" content="%projectDesc%"^>>> index.html
 @ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<meta name="keywords" content="%projectKeyWords%"^>>> index.html
 @ECHO.>> index.html
+IF "%eomponents%" == "true" (
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<link href="%styleFolder%/eomponents.css" rel="stylesheet"^>>> index.html
+)
 IF "%bootstrap%" == "true" (
 	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<link href="%styleFolder%/bootstrap.min.css" rel="stylesheet"^>>> index.html
 )
