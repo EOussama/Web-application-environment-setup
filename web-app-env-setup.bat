@@ -4,7 +4,7 @@ REM Web application environment setup
 
 
 REM The author's name to show up on the <meta name="author" content=""> tag.
-SET author=Redouan
+SET author=EOussama
 
 REM The name of the folder that will contain javascript files.
 SET scriptFolder=scripts
@@ -16,16 +16,16 @@ REM The name of the folder that will contain images.
 SET imagesFolder=images
 
 REM Setting this to true will include EOmponents in your project.
-SET eomponents=true
+SET eomponents=false
 
 REM Setting this to true will include bootstrap in your project [if set to true, jQuery will automatically be included], and vice versa.
-SET bootstrap=false
+SET bootstrap=true
 
 REM Setting this to true will include jQuery in your project [including bootsrap will have this set to true regardless], and vice versa.
-SET jQuery=false
+SET jQuery=true
 
 REM Setting this to true will include the font awesome cdn, and vice versa.
-SET fontAwesome=false
+SET fontAwesome=true
 
 
 
