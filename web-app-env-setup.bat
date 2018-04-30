@@ -19,13 +19,13 @@ REM Setting this to true will include EOmponents in your project.
 SET eomponents=false
 
 REM Setting this to true will include bootstrap in your project [if set to true, jQuery will automatically be included], and vice versa.
-SET bootstrap=true
+SET bootstrap=false
 
 REM Setting this to true will include jQuery in your project [including bootsrap will have this set to true regardless], and vice versa.
-SET jQuery=true
+SET jQuery=false
 
 REM Setting this to true will include the font awesome cdn, and vice versa.
-SET fontAwesome=true
+SET fontAwesome=false
 
 
 
@@ -47,8 +47,9 @@ ECHO Enter your project's keywords (comma separated):
 SET /p projectKeyWords=
 SET tab = " "
 
-MKDIR "%projectName%"
-CD "%projectName%"
+MKDIR "exports"
+MKDIR "exports/%projectName%"
+CD "exports/%projectName%"
 MKDIR "%scriptFolder%", "%styleFolder%", "%imagesFolder%"
 
 CD "%scriptFolder%"
@@ -65,23 +66,23 @@ TYPE NUL > main.css
 CD ../
 
 IF "%eomponents%" == "true" (
-	CD ../resources/EOmponents/styles
-	XCOPY eomponents.css ..\..\..\"%projectName%"\"%styleFolder%" /e
-	CD ../../../"%projectName%"
+	CD ../../resources/EOmponents/styles
+	XCOPY eomponents.css ..\..\..\"exports\%projectName%"\"%styleFolder%" /e
+	CD ../../../"exports/%projectName%"
 )
 
 IF "%bootstrap%" == "true" (
-	CD ../resources/bootstrap-4.0.0-dist/css
-	XCOPY bootstrap.min.css ..\..\..\"%projectName%"\"%styleFolder%" /e
+	CD ../../resources/bootstrap-4.0.0-dist/css
+	XCOPY bootstrap.min.css ..\..\..\"exports\%projectName%"\"%styleFolder%" /e
 	CD ../js
-	XCOPY bootstrap.min.js ..\..\..\"%projectName%"\"%scriptFolder%" /e
-	CD ../../../"%projectName%"
+	XCOPY bootstrap.min.js ..\..\..\"exports\%projectName%"\"%scriptFolder%" /e
+	CD ../../../"exports/%projectName%"
 )
 
 IF "%jQuery%" == "true" (
-	CD ../resources
-	COPY jquery-3.3.1.min.js ..\"%projectName%"\"%scriptFolder%"
-	CD ../"%projectName%"
+	CD ../../resources
+	COPY jquery-3.3.1.min.js ..\"exports\%projectName%"\"%scriptFolder%"
+	CD ../"exports/%projectName%"
 )
 
 TYPE NUL > index.html
