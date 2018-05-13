@@ -16,7 +16,7 @@ REM The name of the folder that will contain images.
 SET imagesFolder=images
 
 REM Setting this to true will include EOmponents in your project.
-SET eomponents=false
+SET eomponents=true
 
 REM Setting this to true will include bootstrap in your project [if set to true, jQuery will automatically be included], and vice versa.
 SET bootstrap=false
@@ -68,6 +68,8 @@ CD ../
 IF "%eomponents%" == "true" (
 	CD ../../resources/EOmponents/styles
 	XCOPY eomponents.css ..\..\..\"exports\%projectName%"\"%styleFolder%" /e
+	CD ../scripts
+	XCOPY eomponents.js ..\..\..\"exports\%projectName%"\"%scriptFolder%" /e
 	CD ../../../"exports/%projectName%"
 )
 
@@ -115,10 +117,13 @@ IF "%fontAwesome%" == "true" (
 @ECHO %tab% %tab% %tab% %tab% ^<body^>>> index.html
 @ECHO. %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab%>> index.html
 IF "%jQuery%" == "true" (
-	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script src="%scriptFolder%/jquery-3.3.1.min.js"^>^</script^>>> index.html
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script type="text/javascript" src="%scriptFolder%/jquery-3.3.1.min.js"^>^</script^>>> index.html
 )
 IF "%bootstrap%" == "true" (
-	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script src="%scriptFolder%/bootstrap.min.js"^>^</script^>>> index.html
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script type="text/javascript" src="%scriptFolder%/bootstrap.min.js"^>^</script^>>> index.html
+)
+IF "%eomponents%" == "true" (
+	@ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script type="text/javascript" src="%scriptFolder%/eomponents.js"^>^</script^>>> index.html
 )
 @ECHO %tab% %tab% %tab% %tab% %tab% %tab% %tab% %tab% ^<script type="text/javascript" src="%scriptFolder%/main.js"^>^</script^>>> index.html
 @ECHO %tab% %tab% %tab% %tab% ^</body^>>> index.html
